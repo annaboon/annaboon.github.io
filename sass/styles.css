@@ -7,7 +7,7 @@ Typography
 p {
   font-size: 15px;
   line-height: 29px;
-  color: rgba(28, 54, 83, 0.6);
+  color: #4a221f;
   padding-bottom: 20px;
 }
 
@@ -51,8 +51,8 @@ h5 {
 
 .btn:hover, .btn:focus {
   color: #fff;
-  border-color: #b6ccbc;
-  background-color: #b6ccbc;
+  border-color: #89ad92;
+  background-color: #89ad92;
 }
 
 .btn-white {
@@ -60,21 +60,21 @@ h5 {
   border: solid 2px;
   border-radius: 40px;
   display: inline-block;
-  border-color: #f7e0dc;
+  border-color: #bfaba8;
 }
 
 .btn-white:hover, .btn-white:focus {
-  color: #b6ccbc;
-  border-color: #b6ccbc;
+  color: #89ad92;
+  border-color: #89ad92;
 }
 
 .btn-fill {
   color: #fff;
-  border: solid 2px #b6ccbc;
+  border: solid 2px #89ad92;
   border-radius: 40px;
   display: inline-block;
   text-transform: uppercase;
-  background-color: #b6ccbc;
+  background-color: #89ad92;
 }
 
 .btn-fill:hover, .btn-fill:focus {
@@ -133,7 +133,7 @@ Global Styles
 }
 
 a {
-  color: #b6ccbc;
+  color: #89ad92;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
   -webkit-transition-duration: 200ms;
@@ -150,7 +150,7 @@ a:hover, a:focus {
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
-  color: rgba(28, 54, 83, 0.6);
+  color: #4a221f;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -176,7 +176,7 @@ section .header {
 }
 
 .section-border {
-  border-bottom: 1px solid #b6ccbc;
+  border-bottom: 1px solid #60896b;
 }
 
 .tooltip {
@@ -458,14 +458,14 @@ Hero
   }*/
 }
 .hero .down-arrow a {
-  color: #f7e0dc;
+  color: #bfaba8;
 }
 .hero h1 {
-  color: #f7e0dc;
+  color: #bfaba8;
   margin-bottom: 40px;
 }
 .hero p.intro {
-  color: #f7e0dc;
+  color: #bfaba8;
   font-size: 20px;
   font-weight: 300;
   margin-bottom: 80px;
@@ -503,7 +503,7 @@ header {
   transition: padding 300ms ease-in-out;
 }
 header a {
-  color: #f7e0dc;
+  color: #bfaba8;
   text-transform: uppercase;
   font-size: 13px;
 }
@@ -524,11 +524,11 @@ header ul.primary-nav li {
   display: inline;
 }
 header ul.primary-nav li a {
-  color: #f7e0dc;
+  color: #bfaba8;
   padding-right: 25px;
 }
 header ul.primary-nav li a:hover {
-  color: #b6ccbc;
+  color: #89ad92;
 }
 header ul.primary-nav li:last-child a {
   padding-right: 0px;
@@ -537,10 +537,10 @@ header ul.member-actions li {
   display: inline;
 }
 header ul.member-actions li a {
-  color: #f7e0dc;
+  color: #bfaba8;
 }
 header ul.member-actions li a:hover {
-  color: #b6ccbc;
+  color: #89ad92;
 }
 header .header-nav {
   display: inline-block;
@@ -568,7 +568,7 @@ Intro
 ========================================================================== */
 .intro span.icon {
   font-size: 40px;
-  color: #b6ccbc;
+  color: #89ad92;
   font-weight: bold;
 }
 
@@ -612,7 +612,7 @@ Features-stack
 }
 .features span.icon {
   font-size: 35px;
-  color: #b6ccbc;
+  color: #89ad92;
   font-weight: bold;
 }
 .features .feature-icon {
@@ -642,7 +642,7 @@ Features-stack
 .features ul.features-stack li {
   margin-top: 20px;
   padding-bottom: 20px;
-  border-bottom: solid 1px #b6ccbc;
+  border-bottom: solid 1px #60896b;
 }
 .features ul.features-stack li:last-child {
   padding-bottom: 0px;
@@ -740,7 +740,7 @@ Features-stack
 ========================================================================== */
 .events .leftcol {
   padding-right: 100px;
-  border-right: solid 1px #b6ccbc;
+  border-right: solid 1px #60896b;
 }
 .events .rightcol {
   padding-left: 100px;
@@ -749,7 +749,7 @@ Features-stack
   font-size: 13px;
   font-style: italic;
   text-transform: lowercase;
-  color: rgba(28, 54, 83, 0.6);
+  color: #4a221f;
 }
 
 /* ==========================================================================
@@ -813,7 +813,7 @@ Features-stack
   font-size: 15px;
 }
 .blog figcaption a.blog-post-title {
-  color: rgba(28, 54, 83, 0.6);
+  color: #4a221f;
 }
 .blog figcaption a.blog-post-title:hover, .blog figcaption a.blog-post-title:focus {
   color: #0F5316;
@@ -836,19 +836,19 @@ RSVP form
   height: 55px;
   margin: 0 auto 10px;
   border-radius: 5px;
-  border: solid 1px #b6ccbc;
+  border: solid 1px #60896b;
   text-align: left;
   position: relative;
 }
 .rsvp .rsvp-form .form-input-group i {
-  color: #b6ccbc;
+  color: #89ad92;
   font-size: 14px;
 }
 .rsvp .rsvp-form .form-input-group i:after {
   content: "";
   height: 30px;
   width: 1px;
-  border-right: solid 1px #b6ccbc;
+  border-right: solid 1px #60896b;
   position: absolute;
   top: 50%;
   left: 30px;
@@ -887,7 +887,7 @@ RSVP form
 Footer
 ========================================================================== */
 footer .content {
-  border-top: 1px solid #b6ccbc;
+  border-top: 1px solid #60896b;
   padding-bottom: 20px;
 }
 footer .to-top-wrapper {
@@ -898,7 +898,7 @@ footer .to-top-wrapper {
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  border: 1px solid #b6ccbc;
+  border: 1px solid #60896b;
   background: #fff;
 }
 footer .to-top-wrapper .to-top {
