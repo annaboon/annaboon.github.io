@@ -1,59 +1,58 @@
-# Wedding Invitation Website
+# Wedding Website
+A beautiful, feature rich, device friendly wedding website.  
+_See [wedding.rampatra.com](http://wedding.rampatra.com/) for a demo. Use invite code `271117` to RSVP._
 
+# Highlights
+1. Slick and fully __responsive__ design.
+2. __RSVP feature__ which directly uploads data to a Google sheet.
+3. __Receive email alerts__ when someone RSVPs.
+4. __Add to Calendar__ feature which supports four different calendars.
+5. __Book Uber__ button lets guests book a cab to the venue with just a single tap.
+6. A nice __Youtube video__ showing your venue.
+7. __Google Map__ showing your venue's location.
+8. Start and run the website __completely free__. No hosting, backend server, or database required as you can use
+   [GitHub Pages](https://pages.github.com/) to host and Google sheets (with the help of Google scripts) to store RSVP
+   data.
 
-## Frontend Web project on Wedding invitation to GurAman's Wedding
-![Java](https://user-images.githubusercontent.com/112867859/209871504-40f50a44-479c-4fec-b0a1-ee1b72bfa32b.png)
+# Getting Started
+1. `$ git clone https://github.com/rampatra/wedding-website.git` - clone this project to your computer
+2. `$ cd wedding-website` - go inside the project directory
+3. `$ npm install` - install dependencies
+4. `$ gulp` - compile sass to css, minify js, etc.
+5. That's it, open `index.html` file on your browser by just double-clicking on it.
 
-### To preview the webpage, [click here](https://wedding-invitation-website.vercel.app/)
+# Documentation
+I have written a 
+[blog post describing all the features of this wedding website](https://blog.rampatra.com/wedding-website) and how to
+customize each of them according to your needs.
 
+# About Me
+Hello, my name is Ram. I am a Director of Software Engineering at [Mastercard](https://www.mastercard.com/). I enjoy making teeny tiny applications in
+my leisure time and this is one of them. Now that my wedding is over, I am open-sourcing the project. Hope you like it!
 
+# Sponsors
+Proudly sponsored by these awesome apps. Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://x.com/rampatra_)]
 
-A frontend focussed Web project that is made as an invitation to the wedding of imaginary love birds Aman and Gurdeep. The inspiration of this project was taken from an online template on wedding invitation website available on wix. [Click here](https://www.wix.com/website-template/view/html/3124?originUrl=https%3A%2F%2Fwww.wix.com%2Fwebsite%2Ftemplates%2Fhtml%2Fevents%2Fweddings&tpClick=view_button&esi=994b31f9-7b66-4125-9bde-0b7ce55f0c0b) to view the template. It consists of the following notable features:
+<table>
+    <tr>
+        <td>
+            <a href="https://presentifyapp.com/" target="_blank"><img src="https://presentifyapp.com/assets/img/presentify/app-icon-512.png" width="150" height="150"></a>
+        </td>
+        <td>
+            <a href="https://facescreenapp.com/" target="_blank"><img src="https://github.com/user-attachments/assets/b251b413-ccc4-48f1-a316-c2c2a71f959e" width="150" height="150"></a>
+        </td>
+        <td>
+            <a href="https://todobarapp.com/" target="_blank"><img src="https://todobarapp.com/assets/img/todobar/app-icon-512.png" width="150" height="150"></a>
+        </td>
+        <td>
+            <a href="https://simplefillapp.com/" target="_blank"><img src="https://github.com/user-attachments/assets/6c575d9c-b65b-4ce7-a468-30f74cfedf18" width="150" height="150"></a>
+        </td>
+    </tr>
+</table>
 
-* Firebase Storage used as FTP for image assets of the webpage.
-* Perfectly responsive according to various screen sizes.
-* Sections of the webpage linked to navbar elements.
-* Parallax effect using event listener in JS file.
-* Page element reveal using subtle animation.
-* Responsive buttons on hover.
+# Contribute
+First, a big thank you 🙏🏻 for the overwhelming response on [Hacker News](https://news.ycombinator.com/item?id=18556787) and [Reddit](https://www.reddit.com/r/opensource/comments/a1bx4h/i_am_open_sourcing_my_wedding_website_on_my_first/). If you'd like to contribute to the project, feel free to create a [PR](https://help.github.com/articles/about-pull-requests/). To support my work, you can buy one of the apps listed under the "Sponsors" section or click the button below.
 
-## Technology used
-* [HTML](https://github.com/archakNath/wedding-invitation-website/blob/main/index.html) : index.html provides basic structure to the webpage
-* [CSS](https://github.com/archakNath/wedding-invitation-website/blob/main/style.css) : style.css helps in styling the webpage
-* [JavaScript](https://github.com/archakNath/wedding-invitation-website/blob/main/main.js) : main.js consists of functions that enables parallax effect using event listener and reveal function to add animation
+<a href="https://www.buymeacoffee.com/rampatra" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
-
-## How to install and view this project
-
-1. Install Code editor (VS Code is recommended).
-2. Download GitHub Desktop.
-3. Sign in to GitHub.com and GitHub Desktop before you start to clone.
-4. On GitHub.com, navigate to the main page of the repository.
-5. Above the list of files, click  Code.
-6. Click  Open with GitHub Desktop to clone and open the repository with GitHub Desktop.
-7. Click Choose... and, using the Finder window, navigate to a local path where you want to clone the repository.
-<br><code>Note: If the repository is configured to use LFS, you will be prompted to initialize Git LFS.</code>
-8. Click Clone.
-9. Once the repository has been cloned, open the folder in VS Code.
-10. Download and Install Live Server extenstion.
-11. Open the index.html file and click "Go Live" button in the bottom right corner of VS Code.
-
-
-## How to tweek this project for your own use
-
-You are free to use and make changes is my code. I would recommend you to clone and rename this project and use it for your own purpose. Certain points need to be kept in mind while you make any changes.
-1. Even though CSS file has been structured using comments, HTML file is structured but lacks comments and JS file is just coarse.
-2. Folder structuring is not done properly as this was my earliest of projects and I was ignorant.
-3. Image resources cannot be accessed as they are stored as ftp. You will find image url and not any path.
-
-
-## Found a bug?
-If you found an issue or would like to submit an improvement of this project, please submit an issue using the issue tab above. If you would like to submit a PR with a fix, reference the issue you created!
-
-## Known issues
-This project has been completed. There is no plans of any further working over this project from my end(author's end). If you think you can add any feature, do ping me on my socials(recommended) or submit an issue.
-
-
-## Preview of the Webpage
-### Warning: Certain elements are missing(like navbar) and parallax effect cannot be presented in this screenshot. It's recommended to clone the project and view.
-![127 0 0 1_5500_index html (2)](https://user-images.githubusercontent.com/112867859/209858898-aad8b895-f5ff-4a18-9afd-d1ac80668bf7.png)
+_P.S. For any queries or concerns, you can reach out to me on [Twitter](https://twitter.com/rampatra_). I'll try my best to help._
