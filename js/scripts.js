@@ -176,7 +176,7 @@ $(document).ready(function () {
             address: 'Le Farm, Rijksstraatweg 105, 2629JE, Delft',
 
             // Event Description
-            description: "We kijken er naar uit om met jullie deze dag te vieren! Voor vragen kan je mailen naar famkleijwegtboon@gmail.com."
+            description: "We kijken er naar uit om met jullie deze dag te vieren! Voor vragen kan je mailen naar ceremoniemeesters@kleijwegt.online."
         }
     });
 
