@@ -1,10 +1,5 @@
 $(document).ready(function () {
 
-	// alert_markup
-	function alert_markup(alert_type, msg) {
-		return '<div class="alert alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';
-	}
-
     /***************** Waypoints ******************/
 
     $('.wp1').waypoint(function () {
@@ -76,22 +71,21 @@ $(document).ready(function () {
     /***************** Nav Transformicon ******************/
 
     /* When user clicks the Icon */
+    $('.nav-toggle').click(function () {
+        $(this).toggleClass('active');
+        $('.header-nav').toggleClass('open');
+        event.preventDefault();
+    });
+    /* When user clicks a link */
+    $('.header-nav li a').click(function () {
+        $('.nav-toggle').toggleClass('active');
+        $('.header-nav').toggleClass('open');
 
-	$('.nav-toggle').on('click', function (e) {
-	    e.preventDefault();
-	    $(this).toggleClass('active');
-	    $('.header-nav').toggleClass('open');
-	});
-
-	$('.member-actions li a').on('click', function () {
-	    $('.nav-toggle').removeClass('active');
-	    $('.header-nav').removeClass('open');
-	});
-
+    });
 
     /***************** Header BG Scroll ******************/
 
-
+    $(function () {
         $(window).scroll(function () {
             var scroll = $(window).scrollTop();
 
@@ -121,7 +115,7 @@ $(document).ready(function () {
                 });
             }
         });
-
+    });
     /***************** Smooth Scrolling ******************/
 
     $(function () {
@@ -143,6 +137,8 @@ $(document).ready(function () {
     });
 
 
+    /********************** Embed youtube video *********************/
+    $('.player').YTPlayer();
 
 
     /********************** Toggle Map Content **********************/
@@ -186,44 +182,49 @@ $(document).ready(function () {
 
     $('#add-to-cal').html(myCalendar);
 
-
     /********************** RSVP **********************/
+
+
 $("#rsvp-form").on("submit", function(e) {
   e.preventDefault();
-  var t = $(this).serialize();
+  var t = $(this).serialize();  // Ensure 't' is defined here
   $("#alert-wrapper").html(alert_markup("info", "<strong>Even geduld</strong> We zijn de informatie aan het opslaan."));
+	$.ajax({
+	  url: "https://script.google.com/macros/s/AKfycbz5KiufWLBc811RH81PyvB_y8rRKtY9cHG_ickoMOgOo8OUonAUjhYuRkrz8KMWunLE/exec",
+	  method: "POST",
+	  data: t,
+	  dataType: "json", // <-- this is the key fix
+	  success: function(e) {
+		console.log(e);
+		if (e.result === "error") {
+		  $("#alert-wrapper").html(alert_markup("danger", e.message));
+		} else {
+		  $("#alert-wrapper").html("");
+		  $("#rsvp-modal").modal("show");
+		}
+	  },
+	  error: function(xhr, status, error) {
+		console.log(xhr, status, error);
+		$("#alert-wrapper").html(alert_markup("danger", "<strong>Sorry!</strong> Er is een probleem met de server."));
+	  }
+	});
 
-  $.ajax({
-    url: "https://script.google.com/macros/s/AKfycbz5KiufWLBc811RH81PyvB_y8rRKtY9cHG_ickoMOgOo8OUonAUjhYuRkrz8KMWunLE/exec",
-    method: "POST",
-    data: t,
-    dataType: "json",
-    success: function(e) {
+    })
+    .fail(function(e) {
       console.log(e);
-      if (e.result === "error") {
-        $("#alert-wrapper").html(alert_markup("danger", e.message));
-      } else {
-        $("#alert-wrapper").html("");
-        $("#rsvp-modal").modal("show");
-      }
-    },
-    error: function(xhr, status, error) {
-      console.log(xhr, status, error);
       $("#alert-wrapper").html(alert_markup("danger", "<strong>Sorry!</strong> Er is een probleem met de server."));
-    }
-
-  });
+    });
 });
-});
-
-
-
-
-
 
 
 /********************** Extras **********************/
 
+
+
+// alert_markup
+function alert_markup(alert_type, msg) {
+    return '<div class="alert alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';
+}
 
 // MD5 Encoding
 var MD5 = function (string) {
