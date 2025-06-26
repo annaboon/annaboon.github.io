@@ -76,17 +76,18 @@ $(document).ready(function () {
     /***************** Nav Transformicon ******************/
 
     /* When user clicks the Icon */
-    $('.nav-toggle').click(function () {
-        $(this).toggleClass('active');
-        $('.header-nav').toggleClass('open');
-        event.preventDefault();
-    });
-    /* When user clicks a link */
-    $('.header-nav li a').click(function () {
-        $('.nav-toggle').toggleClass('active');
-        $('.header-nav').toggleClass('open');
 
-    });
+	$('.nav-toggle').on('click', function (e) {
+	    e.preventDefault();
+	    $(this).toggleClass('active');
+	    $('.header-nav').toggleClass('open');
+	});
+
+	$('.member-actions li a').on('click', function () {
+	    $('.nav-toggle').removeClass('active');
+	    $('.header-nav').removeClass('open');
+	});
+
 
     /***************** Header BG Scroll ******************/
 
@@ -142,8 +143,6 @@ $(document).ready(function () {
     });
 
 
-    /********************** Embed youtube video *********************/
-    $('.player').YTPlayer();
 
 
     /********************** Toggle Map Content **********************/
