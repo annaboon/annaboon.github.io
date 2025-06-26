@@ -212,10 +212,7 @@ $("#rsvp-form").on("submit", function(e) {
       console.log(xhr, status, error);
       $("#alert-wrapper").html(alert_markup("danger", "<strong>Sorry!</strong> Er is een probleem met de server."));
     }
-    .fail(function(e) {
-      console.log(e);
-      $("#alert-wrapper").html(alert_markup("danger", "<strong>Sorry!</strong> Er is een probleem met de server."));
-	}) 
+
   });
 });
 });
