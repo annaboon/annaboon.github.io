@@ -189,35 +189,40 @@ $(document).ready(function () {
 
 
     /********************** RSVP **********************/
-	
-    $('#rsvp-form').on('submit', function (e) {
-        e.preventDefault();
-        var data = $(this).serialize();
+$("#rsvp-form").on("submit", function(e) {
+  e.preventDefault();
+  var t = $(this).serialize();
+  $("#alert-wrapper").html(alert_markup("info", "<strong>Even geduld</strong> We zijn de informatie aan het opslaan."));
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Even geduld</strong> We zijn de informatie aan het opslaan.'));
-
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Je uitnodiginscode is niet correct.'));
-        } else {
-            $.post('https://script.google.com/macros/s/AKfycbz5KiufWLBc811RH81PyvB_y8rRKtY9cHG_ickoMOgOo8OUonAUjhYuRkrz8KMWunLE/exec', data)
-                .done(function (data) {
-                    console.log(data);
-                    if (data.result === "error") {
-                        $('#alert-wrapper').html(alert_markup('danger', data.message));
-                    } else {
-                        $('#alert-wrapper').html('');
-                        $('#rsvp-modal').modal('show');
-                    }
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Er is een probleem met de server. '));
-                });
-        }
-    });
-
+  $.ajax({
+    url: "https://script.google.com/macros/s/AKfycbz5KiufWLBc811RH81PyvB_y8rRKtY9cHG_ickoMOgOo8OUonAUjhYuRkrz8KMWunLE/exec",
+    method: "POST",
+    data: t,
+    dataType: "json",
+    success: function(e) {
+      console.log(e);
+      if (e.result === "error") {
+        $("#alert-wrapper").html(alert_markup("danger", e.message));
+      } else {
+        $("#alert-wrapper").html("");
+        $("#rsvp-modal").modal("show");
+      }
+    },
+    error: function(xhr, status, error) {
+      console.log(xhr, status, error);
+      $("#alert-wrapper").html(alert_markup("danger", "<strong>Sorry!</strong> Er is een probleem met de server."));
+    }
+    .fail(function(e) {
+      console.log(e);
+      $("#alert-wrapper").html(alert_markup("danger", "<strong>Sorry!</strong> Er is een probleem met de server."));
+	}) 
+  });
 });
+});
+
+
+
+
 
 
 /********************** Extras **********************/
