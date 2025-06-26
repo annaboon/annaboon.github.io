@@ -210,15 +210,14 @@ $(document).ready(function () {
                         $('#rsvp-modal').modal('show');
                     }
                 })
-	  error: function(xhr, status, error) {
-		console.log(xhr, status, error);
-		$("#alert-wrapper").html(alert_markup("danger", "<strong>Sorry!</strong> Er is een probleem met de server."));
-	  }
-	});
+                .fail(function (data) {
+                    console.log(data);
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Er is een probleem met de server. '));
+                });
+        }
+    });
 
-    })
 });
-
 
 
 /********************** Extras **********************/
