@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+	// alert_markup
+	function alert_markup(alert_type, msg) {
+		return '<div class="alert alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';
+	}
+
     /***************** Waypoints ******************/
 
     $('.wp1').waypoint(function () {
@@ -85,7 +90,7 @@ $(document).ready(function () {
 
     /***************** Header BG Scroll ******************/
 
-    $(function () {
+
         $(window).scroll(function () {
             var scroll = $(window).scrollTop();
 
@@ -115,7 +120,7 @@ $(document).ready(function () {
                 });
             }
         });
-    });
+
     /***************** Smooth Scrolling ******************/
 
     $(function () {
@@ -184,66 +189,39 @@ $(document).ready(function () {
 
 
     /********************** RSVP **********************/
+	
+    $('#rsvp-form').on('submit', function (e) {
+        e.preventDefault();
+        var data = $(this).serialize();
 
-$("#rsvp-form").on("submit", function(e) {
-  e.preventDefault();
-  var t = $(this).serialize();  // Ensure 't' is defined here
-  $("#alert-wrapper").html(alert_markup("info", "<strong>Even geduld</strong> We zijn de informatie aan het opslaan."));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>Even geduld</strong> We zijn de informatie aan het opslaan.'));
 
-
-  $.post("https://script.google.com/macros/s/AKfycbz5KiufWLBc811RH81PyvB_y8rRKtY9cHG_ickoMOgOo8OUonAUjhYuRkrz8KMWunLE/exec", t)
-    .done(function(e) {
-      console.log(e);
-      if (e.result === "error") {
-        $("#alert-wrapper").html(alert_markup("danger", e.message));
-      } else {
-        $("#alert-wrapper").html("");
-        $("#rsvp-modal").modal("show");
-      }
-    })
-    .fail(function(e) {
-      console.log(e);
-      $("#alert-wrapper").html(alert_markup("danger", "<strong>Sorry!</strong> Er is een probleem met de server."));
+        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
+            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Je uitnodiginscode is niet correct.'));
+        } else {
+            $.post('https://script.google.com/macros/s/AKfycbz5KiufWLBc811RH81PyvB_y8rRKtY9cHG_ickoMOgOo8OUonAUjhYuRkrz8KMWunLE/exec', data)
+                .done(function (data) {
+                    console.log(data);
+                    if (data.result === "error") {
+                        $('#alert-wrapper').html(alert_markup('danger', data.message));
+                    } else {
+                        $('#alert-wrapper').html('');
+                        $('#rsvp-modal').modal('show');
+                    }
+                })
+                .fail(function (data) {
+                    console.log(data);
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Er is een probleem met de server. '));
+                });
+        }
     });
-});
 
 });
+
 
 /********************** Extras **********************/
 
-// Google map
-function initMap() {
-    var location = {lat: 22.5932759, lng: 88.27027720000001};
-    var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 15,
-        center: location,
-        scrollwheel: false
-    });
-
-    var marker = new google.maps.Marker({
-        position: location,
-        map: map
-    });
-}
-
-function initBBSRMap() {
-    var la_fiesta = {lat: 20.305826, lng: 85.85480189999998};
-    var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 15,
-        center: la_fiesta,
-        scrollwheel: false
-    });
-
-    var marker = new google.maps.Marker({
-        position: la_fiesta,
-        map: map
-    });
-}
-
-// alert_markup
-function alert_markup(alert_type, msg) {
-    return '<div class="alert alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';
-}
 
 // MD5 Encoding
 var MD5 = function (string) {
@@ -367,7 +345,6 @@ var MD5 = function (string) {
 
         return utftext;
     };
-
 
     var x = Array();
     var k, AA, BB, CC, DD, a, b, c, d;

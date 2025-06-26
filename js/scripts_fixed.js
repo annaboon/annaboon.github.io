@@ -71,12 +71,11 @@ $(document).ready(function () {
     /***************** Nav Transformicon ******************/
 
     /* When user clicks the Icon */
-	$('.nav-toggle').click(function (event) {
-	  event.preventDefault();
-	  $(this).toggleClass('active');
-	  $('.header-nav').toggleClass('open');
-	});
-
+    $('.nav-toggle').click(function () {
+        $(this).toggleClass('active');
+        $('.header-nav').toggleClass('open');
+        event.preventDefault();
+    });
     /* When user clicks a link */
     $('.header-nav li a').click(function () {
         $('.nav-toggle').toggleClass('active');
@@ -183,18 +182,19 @@ $(document).ready(function () {
 
     $('#add-to-cal').html(myCalendar);
 
-
     /********************** RSVP **********************/
 
 $("#rsvp-form").on("submit", function(e) {
   e.preventDefault();
-  var t = $(this).serialize();  // Ensure 't' is defined here
+  var t = $(this).serialize();  
+  
   $("#alert-wrapper").html(alert_markup("info", "<strong>Even geduld</strong> We zijn de informatie aan het opslaan."));
+  
 	$.ajax({
 	  url: "https://script.google.com/macros/s/AKfycbz5KiufWLBc811RH81PyvB_y8rRKtY9cHG_ickoMOgOo8OUonAUjhYuRkrz8KMWunLE/exec",
 	  method: "POST",
 	  data: t,
-	  dataType: "json", // <-- this is the key fix
+	  dataType: "json", 
 	  success: function(e) {
 		console.log(e);
 		if (e.result === "error") {
@@ -204,50 +204,17 @@ $("#rsvp-form").on("submit", function(e) {
 		  $("#rsvp-modal").modal("show");
 		}
 	  },
-	  error: function(xhr, status, error) {
-		console.log(xhr, status, error);
-		$("#alert-wrapper").html(alert_markup("danger", "<strong>Sorry!</strong> Er is een probleem met de server."));
-	  }
-	});
-
-    })
     .fail(function(e) {
       console.log(e);
       $("#alert-wrapper").html(alert_markup("danger", "<strong>Sorry!</strong> Er is een probleem met de server."));
+                });
+        }
     });
+
 });
-
-
 /********************** Extras **********************/
 
-// Google map
-function initMap() {
-    var location = {lat: 22.5932759, lng: 88.27027720000001};
-    var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 15,
-        center: location,
-        scrollwheel: false
-    });
 
-    var marker = new google.maps.Marker({
-        position: location,
-        map: map
-    });
-}
-
-function initBBSRMap() {
-    var la_fiesta = {lat: 20.305826, lng: 85.85480189999998};
-    var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 15,
-        center: la_fiesta,
-        scrollwheel: false
-    });
-
-    var marker = new google.maps.Marker({
-        position: la_fiesta,
-        map: map
-    });
-}
 
 // alert_markup
 function alert_markup(alert_type, msg) {
